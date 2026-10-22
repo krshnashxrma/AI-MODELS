@@ -23,6 +23,11 @@ Every niche is organized into its own folder, structured systematically **from t
 | **06** | [**Embeddings**](./06-Embeddings/README.md) | BGE-M3, ModernBERT, E5-Mistral-7B, NV-Embed-v2 | RAG retrieval, vector search, semantic clustering |
 | **07** | [**Vision**](./07-Vision/README.md) | SmolVLM, Qwen2-VL, PaliGemma 2, Pixtral | UI/UX diagram reading, OCR, multimodal reasoning |
 | **08** | [**Code-Generation**](./08-Code-Generation/README.md) | Qwen2.5-Coder (0.5B-32B), DeepSeek-Coder-V2 | Real-time autocompletion, coding agents, unit tests |
+| **09** | [**Anime-And-Manga-AI**](./09-Anime-And-Manga-AI/README.md) | Animagine XL 3.1, Pony Diffusion V6, MangaOCR | 2D Anime generation, manga OCR, character animation |
+| **10** | [**HTML-And-Web-Generation**](./10-HTML-And-Web-Generation/README.md) | Design2Code, LayoutLMv3, WebCoder, Qwen-Coder | UI screenshot-to-HTML, Tailwind CSS, DOM synthesis |
+| **11** | [**Video-Generation**](./11-Video-Generation/README.md) | HunyuanVideo, CogVideoX, SVD-XT, LTX-Video | Text-to-video, image-to-video, dynamic camera motion |
+| **12** | [**3D-And-Spatial-AI**](./12-3D-And-Spatial-AI/README.md) | TripoSR, Stable Fast 3D, InstantMesh | 2D-to-3D mesh generation, UV mapping, PBR textures |
+| **13** | [**Reasoning-LLMs**](./13-Reasoning-LLMs/README.md) | DeepSeek-R1 (1.5B-671B), QwQ-32B, Marco-o1 | Extended chain-of-thought, Olympiad STEM, deep logic |
 
 ---
 
@@ -35,39 +40,3 @@ Across every niche, models are classified into intuitive sizing tiers:
 4. `4_30B-70B`: 30 to 70 Billion &rarr; Dual GPU / High-end workstation (32GB-80GB VRAM).
 5. `5_70B-100B+`: 70 to 100B+ Dense Flagships &rarr; Enterprise multi-GPU setups.
 6. `6_MoE-Trillion+`: Sparse Mixture-of-Experts (671B DeepSeek, 314B Grok, 1.6T Switch) &rarr; Distributed cloud clusters.
-
----
-
-## 🚀 How to Run Models Remotely or On-Demand
-
-### 1. Using Ollama (Streamed to Local GPU/CPU without storing Git weights)
-```bash
-# Run lightweight Qwen 2.5
-ollama run qwen2.5:7b
-
-# Run DeepSeek-R1 reasoning distilled
-ollama run deepseek-r1:8b
-
-# Run state-of-the-art coding model
-ollama run qwen2.5-coder:7b
-```
-
-### 2. Using vLLM in Cloud (RunPod / Modal / GCP)
-```bash
-pip install vllm
-python -m vllm.entrypoints.openai.api_server \
-    --model Qwen/Qwen2.5-Coder-32B-Instruct \
-    --tensor-parallel-size 2
-```
-
-### 3. Using Hugging Face Inference API / Serverless
-```python
-import requests
-
-API_URL = "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-7B-Instruct"
-headers = {"Authorization": "Bearer YOUR_HF_TOKEN"}
-
-def query(payload):
-    response = requests.post(API_URL, headers=headers, json=payload)
-    return response.json()
-```
