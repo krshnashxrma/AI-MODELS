@@ -1,0 +1,27 @@
+# AOMe Gitignore - Strict Protection Against Heavy Model Weights
+# Prevents accidental downloads or commits of large model weights to laptop or GitHub
+
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.gguf
+*.onnx
+*.msgpack
+*.h5
+*.ckpt
+*.weights
+*.mar
+*.tar.gz
+*.zip
+*.7z
+
+# Cache directories
+.cache/
+huggingface/
+torch/
+models/
+checkpoints/
+__pycache__/
+*.pyc
+.env
